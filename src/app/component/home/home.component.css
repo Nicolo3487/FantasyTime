@@ -24,19 +24,33 @@ h1 {
     img {
         max-width: 100%;
         height: auto;
+        z-index: 2;
     }
 }
 
-
-
-figure {
+#card {
     transition: 0.7s ease-in;
     animation: fallDown 1s linear 1s backwards;
 }
-figure:hover {
-   transform: scale(1.8);
+
+#card:hover {
+   transform: scale(1.5);
+   z-index: 10;
+   
    
 }
+.card-img-overlay {
+    transition: opacity 0.3s; 
+    margin-left: 0.5rem;
+    
+}
+
+
+.card:hover .card-img-overlay {
+    opacity: 1; 
+    
+}
+
 @keyframes fallDown{
     from{
         scale: 2;

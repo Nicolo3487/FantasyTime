@@ -54,13 +54,18 @@
                         <div class="card-body text-center">
                             <label for="search" class="form-label mt-1 "><h5>Cerca immagine</h5></label>
                             <input [(ngModel)]="searchTerm" class="form-control" type="text" placeholder="Cerca per nome" name="search">
-                            <button (click)="searchImage()" class="btn btn-outline-info">Cerca</button>
+                            <button (click)="searchImageByName(searchTerm)" class="btn btn-outline-danger mt-2">Cerca</button>
+                            <div *ngIf="imageNotFound" class="col">
+                                <div class="alert alert-danger" role="alert">
+                                    <h6>Immagine non trovata</h6>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="container">
                     <div class="row row-cols-1 row-cols-md-3 g-3">
-                      <div *ngFor="let image of filteredImages" class="col" (click)="openImage(image.url)">
+                      <div  *ngFor="let image of filteredImages" class="col" (click)="openImage(image.url, image.name)">
                         <div class="card border-dark" id="filterImage">
                           <img [src]="image.url" class=" rounded" alt="FilterImage">
                         </div>
@@ -73,21 +78,24 @@
 <!--Lista Immagini-->
         <div class="container">
             <div class="row row-cols-1 row-cols-md-3 g-3">
-                <div *ngFor="let image of images" class="col" (click)="openImage(image.url)">  
-                    <figure class="figure">
-                        <img [src]="image.url" class="figure-img img-fluid rounded" alt="...">
-                    </figure>
+                <div *ngFor="let image of images" class="col" (click)="openImage(image.url, image.name)">  
+                    <div class="card text-bg-dark" id="card">
+                        <img [src]="image.url" class="card-img img-fluid rounded" alt="image">
+                        <div class="card-img-overlay">
+                            <h6 class="card-title">{{ image.name }}</h6>
+                        </div>
+                    </div>
                 </div>
-            </div><hr>
+            </div>
         </div>
     </div>
 
-    <div class="container text-center my-3">
+    <div class="container text-center my-4">
+        <hr>
         <a href="#" class="text-bg-dark link-offset-2 link-underline link-underline-opacity-0"><h5>Back to Top</h5></a>
     </div>
     
-
-    <footer class="bg-dark " id="Bottom-image">
+    <footer class="bg-dark" id="Bottom-image">
         <div class="container text-center">
             <p class="mx-1 "><b>©EPICODE</b></p>
         </div>

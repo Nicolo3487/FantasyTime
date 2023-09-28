@@ -3,6 +3,7 @@ import { ImageService } from 'src/app/service/image/image.service';
 import { PostService } from 'src/app/service/post/post.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,11 +11,12 @@ import { NgForm } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 
-  //images: string[] = [];
+  images: {url: string, name: string }[] = [];
   searchTerm: string = "";
-  images!: { url: string; }[];
-  filteredImages: { url: string }[] = [];
+  //images: { url: string; }[] = [];
+  filteredImages: { url: string, name: string }[] = [];
   searchUrl: string = "";
+  imageNotFound: boolean = false;
   
   constructor(private imageService: ImageService, private router: Router) {}
 
@@ -38,11 +40,11 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  openImage(imageUrl: string) {
-    this.router.navigate(['/detail'], { queryParams: { image: imageUrl } });
+  openImage(imageUrl: string, imageName: string ) {
+    this.router.navigate(['/detail'], { queryParams: { image: imageUrl, name: imageName} });
   }
 
-  searchImage(){
+  /*searchImage(){
     this.filterImages();
   }
 
@@ -50,6 +52,13 @@ export class HomeComponent implements OnInit {
     this.filteredImages = this.images.filter((image) =>
       image.url.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
+  }*/
+
+  searchImageByName(name: string){
+    this.filteredImages = this.images.filter((image) =>
+    image.name.toLowerCase().includes(name.toLowerCase())
+    );
+    this.imageNotFound = this.filteredImages.length === 0;
   }
 }
 

@@ -9,12 +9,15 @@ import { ActivatedRoute } from '@angular/router';
 export class DetailComponent implements OnInit {
 
   imageUrl: string | null = null;
+  imageName: string | null = null;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.imageUrl = params['image'] || null;
+      this.imageName = params['name'] || null;
     });
+  
   }
 }

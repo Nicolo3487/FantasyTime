@@ -14,7 +14,7 @@ h1 {
     background-image: url(../../../assets/HighresScreenshot00054.png);
     background-size: cover;
     background-position-y: center;
-    height: 4rem;
+    height: 5rem;
 }
 
 .card {
@@ -24,4 +24,20 @@ h1 {
 img {
     max-width: 100%;
     height: auto;
+}
+
+@media (max-width: 767px) {
+    footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+}
+
+ @media (min-width: 768px) {
+    footer {
+      position: absolute;
+      bottom: 4;
+      width: 100%;
+    }
 }

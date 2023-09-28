@@ -1,29 +1,29 @@
-<div class="bg-dark mx-0">
+<body class="text-bg-dark">
     <div id="Top-image">
         <h1 class="text-center text-white mb-5">Fantasy Time</h1>
     </div>
 
-    <div class="bg-dark my-5">
+    <div class="my-5">
         <div class="container ">
-            <div class="card border-dark">
+            <div class="card border-dark text-bg-dark">
                 <div *ngIf="imageUrl" >
                     <img [src]="imageUrl" alt="Immagine" class="rounded">
+                    <p class="my-2">Nome:</p><h5>{{ imageName }}</h5>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <div class="text-center my-2">
-        <a routerLink="/" class="btn btn-outline-warning">Torna alla Home</a>  
-    </div>
-    
-    <footer class="text-bg-dark " id="Bottom-image">
-        <div class="container text-center">
-            <p class="mx-1 "><b>©EPICODE</b></p>
+      
+        <div class="text-center my-4">
+            <a routerLink="/" class="btn btn-outline-warning">Torna alla Home</a>  
         </div>
-    </footer>
-</div>
-
+        
+        <footer class="text-bg-dark mt-3 mb-0" id="Bottom-image">
+            <div class="container text-center">
+                <p class="mx-1 "><b>©EPICODE</b></p>
+            </div>
+        </footer>
+    </div> 
+</body>
 
 
 

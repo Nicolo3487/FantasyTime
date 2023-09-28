@@ -5,7 +5,8 @@ import { Storage, ref, listAll, getDownloadURL, uploadBytes } from '@angular/fir
 })
 export class ImageService {
 
-  images: { url: string }[] = [];
+  images: {url:string, name:string }[] = [];
+  //images: { url: string }[] = [];
   //images: string[] = [];
   
   constructor(private storage: Storage) { }
@@ -17,10 +18,11 @@ export class ImageService {
       this.images = [];
       for(let image of images.items) {
         const url = await getDownloadURL(image);
+        const name = image.name;
 
         const currentDate = new Date();
         //this.images.push(url});
-        this.images.push({url});
+        this.images.push({url, name});
         console.log(url, currentDate);
       }
       return this.images;
@@ -37,9 +39,14 @@ export class ImageService {
   }
 
   searchImagesByUrl(url: string) {
-    
     return this.images.filter((image) =>
       image.url.toLowerCase() === url.toLowerCase()
+    );
+  }
+
+  searchImagesByName(name: string) {
+    return this.images.filter((image) =>
+      image.name.toLowerCase().includes(name.toLowerCase())
     );
   }
 }

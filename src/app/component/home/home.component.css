@@ -1,0 +1,52 @@
+#Top-image {
+    background-image: url(../../../assets/HighresScreenshot00008.png);
+    background-size:cover;
+    background-position-y: center;
+    background-position-x: center;
+    max-width: 100%;
+    height: 20rem;
+}
+
+h1 {
+    padding-top: 13rem;
+}
+
+#Bottom-image {
+    background-image: url(../../../assets/HighresScreenshot00054.png);
+    background-size: cover;
+    background-position-y: center;
+    height: 4rem;
+}
+
+#filterImage{
+        width: 100%;
+    
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+
+
+figure {
+    transition: 0.7s ease-in;
+    animation: fallDown 1s linear 1s backwards;
+}
+figure:hover {
+   transform: scale(1.8);
+   
+}
+@keyframes fallDown{
+    from{
+        scale: 2;
+        opacity: 0;
+        z-index: 1;
+    }
+    1%{
+        opacity: 1;
+    }
+    to{
+        opacity: 1;
+    }
+}

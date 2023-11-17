@@ -20,12 +20,12 @@ h1 {
 
 #filterImage{
         width: 100%;
-    
-    img {
-        max-width: 100%;
+}
+
+#filterImage img {
+    max-width: 100%;
         height: auto;
         z-index: 2;
-    }
 }
 
 #card {
